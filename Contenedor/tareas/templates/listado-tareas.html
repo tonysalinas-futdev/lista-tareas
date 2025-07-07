@@ -1,0 +1,8 @@
+{% for tarea in tareas  %}
+<ul>
+    <li><h2>{{tarea.nombre}}</h2>{{tarea.completada}} <br>{{tarea.fecha_creacion}} </li>
+</ul>
+{% empty %}
+    <h2>No tienes tareas almacenadas todavia</h2>
+
+{% endfor %}
