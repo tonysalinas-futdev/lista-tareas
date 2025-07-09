@@ -1,0 +1,23 @@
+<h1>Detalles de la tarea</h1>
+<h2>Nombre: {{tarea.nombre}}</h2>
+<h3>Descripcion: {{tarea.descripcion}}</h3>
+    </h2>Completada: 
+    {% if tarea.completada %}
+    <span>❌</span>
+    
+    {% else %}
+    <span>✅</span>
+    
+    {% endif %}
+    <div></div>
+    <br>{% if tarea.fecha_vencimiento %}
+    Fecha de vencimiento {{tarea.fecha_vencimiento|date:"d/m/Y"}}
+    {% else %}
+
+    
+    Sin fecha de vencimiento
+    {% endif %}
+    <div></div>
+    {% if tarea.fecha_actualizacion %}
+    <br>Ultima actualizacion: {{tarea.fecha_actualizacion|date:"d/m/Y"}}
+    {% endif %}

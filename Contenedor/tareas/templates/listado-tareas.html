@@ -1,8 +1,21 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'listado-tareas.css' %}">
 {% for tarea in tareas  %}
 <ul>
-    <li><h2>{{tarea.nombre}}</h2>{{tarea.completada}} <br>{{tarea.fecha_creacion}} </li>
+    <div class="tarea">
+    <li class="lista">
+        <h2>{{tarea.nombre}}</h2>
+        Fecha de creacion {{tarea.fecha_creacion|date:"d/m/Y"}}
+    
+        <br> <a href="{% url 'detalles' tarea.id %}">Ver detalles</a>
+        <br> <a href="{% url 'actualizar' tarea.id %}">Actualizar Tarea</a>
+        
+
+    </li>
 </ul>
+    </div>
 {% empty %}
     <h2>No tienes tareas almacenadas todavia</h2>
+    
 
 {% endfor %}

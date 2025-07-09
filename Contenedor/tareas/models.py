@@ -5,6 +5,7 @@ class Tarea(models.Model):
     descripcion=models.TextField(max_length=4000)
     fecha_creacion=models.DateField(auto_now_add=True)
     fecha_actualizacion=models.DateField(auto_now=True)
-    fecha_vencimiento=models.DateField()
+    fecha_vencimiento=models.DateField(null=True, blank=True
+                                )
     completada=models.BooleanField(default=True)
     
