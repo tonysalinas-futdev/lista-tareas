@@ -8,7 +8,12 @@
         Fecha de creacion {{tarea.fecha_creacion|date:"d/m/Y"}}
     
         <br> <a href="{% url 'detalles' tarea.id %}">Ver detalles</a>
+        
         <br> <a href="{% url 'actualizar' tarea.id %}">Actualizar Tarea</a>
+        
+        
+        <br> <a href="{% url 'eliminar' tarea.id %}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar esta tarea?');">Eliminar</a> 
+
         
 
     </li>
