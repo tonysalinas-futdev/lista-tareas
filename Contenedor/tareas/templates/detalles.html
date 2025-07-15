@@ -1,23 +1,53 @@
-<h1>Detalles de la tarea</h1>
+<!--Codigo para hacer aparecer el base.html-->
+{% extends 'base.html' %}
+<!--Codigo para definir el contenido-->
+
+{% block content %}
+    <h1>Detalles de la tarea</h1>
+<!--Codigo para mostar el nombre de la tarea-->
+
 <h2>Nombre: {{tarea.nombre}}</h2>
+<!--Codigo para mostar la descripcion-->
+
 <h3>Descripcion: {{tarea.descripcion}}</h3>
     </h2>Completada: 
+<!--Condicional para saber si la tarea esta completada o no-->
+<!--Si no esta completada-->
+
     {% if tarea.completada %}
+<!--Hacemos esto-->
+    
     <span>❌</span>
+<!--Si esta completada-->
     
     {% else %}
+<!--Hacemos esto-->
+
     <span>✅</span>
+<!--Cerramos la condicional-->
     
     {% endif %}
     <div></div>
+<!--Condicional para coomprobar si la tarea tiene fecha de vencimiento-->
+
     <br>{% if tarea.fecha_vencimiento %}
+<!--Si tiene hacemos esto-->
+    
     Fecha de vencimiento {{tarea.fecha_vencimiento|date:"d/m/Y"}}
     {% else %}
 
+<!--Si no , renderizamos esto-->
     
     Sin fecha de vencimiento
     {% endif %}
     <div></div>
+<!--Si la tarea fue actualizada-->
+    
     {% if tarea.fecha_actualizacion %}
+<!--Mostramos la fecha de la actualizacion-->
+
     <br>Ultima actualizacion: {{tarea.fecha_actualizacion|date:"d/m/Y"}}
     {% endif %}
+<!--Aqui termina el contenido del bloque-->
+
+{% endblock content %}

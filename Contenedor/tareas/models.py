@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Tarea(models.Model):
     nombre=models.CharField(max_length=255, unique=True)
@@ -8,4 +9,5 @@ class Tarea(models.Model):
     fecha_vencimiento=models.DateField(null=True, blank=True
                                 )
     completada=models.BooleanField(default=True)
+    usuario=models.ForeignKey(User, on_delete=models.CASCADE)
     

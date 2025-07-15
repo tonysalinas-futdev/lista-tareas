@@ -1,1 +1,22 @@
+<!--Codigo para extender el base.html-->
+{% extends 'base.html' %}
+{% block content %}
+<!--Comprobamos si el usuario esta autenticado, para mostar su nombre-->
+
+    {% if user.is_authenticated %}
+<!--Mostramos su nombre-->
+
+<h2>Bienvenido a la web {{user.username}}</h2>
+
+{% else %}
 <h2> Bienvenido a la web</h2>
+{% endif %}
+<!--Enlace que lo lleva a la url para crear una tarea-->
+
+<a href="{% url 'Crear' %}">Crear Tarea</a>
+<!--Enlace que lo lleva a la url donde se le mostaran todas las tareas-->
+
+<a href="{% url 'Tareas' %}">Ver todas las tareas</a>
+
+{% endblock content %}
+
