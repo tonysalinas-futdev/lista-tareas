@@ -37,6 +37,7 @@ class TareaForm(forms.ModelForm):
         })
         }
 
+    # Nos aseguramos de que la fecha de vencimineto no sea anterior a la fecha de creacion de la tarea
     def clean_fecha_vencimiento(self):
         fecha = self.cleaned_data.get('fecha_vencimiento')
         if fecha:
@@ -44,6 +45,7 @@ class TareaForm(forms.ModelForm):
             if fecha < hoy:
                 raise forms.ValidationError("La fecha de vencimiento no puede ser en el pasado.")
         return fecha
+    
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 

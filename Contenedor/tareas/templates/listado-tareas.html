@@ -1,20 +1,33 @@
+<!--Extendemos la base-->
 {% extends 'base.html' %}
+<!--Cargamos los archivos estaticos-->
 {% load static %}
+
+<!--Enlazamos el css-->
 <link rel="stylesheet" href="{% static 'listado-tareas.css' %}">
+
+<!--Inicio para el bloque de contenido -->
 {% block content %}
-    
-{% for tarea in tareas  %}
+
+<!--Bucle para acceder a todas las tareas del usuario-->
+    {% for tarea in tareas  %}
 <ul>
     <div class="tarea">
     <li class="lista">
+        <!--Nombre de cada tarea-->
         <h2>{{tarea.nombre}}</h2>
+        
+        <!--Fecha de creacion de cada tarea formateada-->
         Fecha de creacion {{tarea.fecha_creacion|date:"d/m/Y"}}
+        
+        <!--El id de cada tarea con una url que te lleva al template de detalles-->
     
         <br> <a href="{% url 'detalles' tarea.id %}">Ver detalles</a>
         
+        <!--El id de cada tarea con la url que te lleva al template para actualizar la tarea-->
         <br> <a href="{% url 'actualizar' tarea.id %}">Actualizar Tarea</a>
         
-        
+        <!--Lo mismo pero para eliminar tarea, onclik para mostrar una ventana emergente de confirmacion-->
         <br> <a href="{% url 'eliminar' tarea.id %}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar esta tarea?');">Eliminar</a> 
 
         
@@ -22,10 +35,12 @@
     </li>
 </ul>
     </div>
+    <!--Condicional por si acaso el usuario no tiene tareas guardadas-->
 {% empty %}
     <h2>No tienes tareas almacenadas todavia</h2>
     
 
+    <!--Cerramos el bucle for-->
 {% endfor %}
-
+<!--Cerramos el bloque-->
 {% endblock content %}

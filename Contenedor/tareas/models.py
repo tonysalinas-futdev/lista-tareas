@@ -8,6 +8,6 @@ class Tarea(models.Model):
     fecha_actualizacion=models.DateField(auto_now=True)
     fecha_vencimiento=models.DateField(null=True, blank=True
                                 )
-    completada=models.BooleanField(default=True)
+    completada=models.BooleanField(default=False)
     usuario=models.ForeignKey(User, on_delete=models.CASCADE)
     

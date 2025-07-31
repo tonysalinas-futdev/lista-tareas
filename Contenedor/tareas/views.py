@@ -68,4 +68,10 @@ def eliminar_tarea(request, tarea_id):
     messages.success(request, "La Tarea ha sido eliminada con éxito ")
     return redirect("Tareas")
     
-    
+
+@login_required
+def completar_tarea(request, tarea_id):
+    tarea=get_object_or_404(Tarea, id=tarea_id, usuario=request.user)
+    tarea.completada=True
+    tarea.save()
+    return redirect("Tareas")

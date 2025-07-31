@@ -16,14 +16,16 @@
 
     {% if tarea.completada %}
 <!--Hacemos esto-->
+    <span>✅</span>
     
-    <span>❌</span>
+    
 <!--Si esta completada-->
     
     {% else %}
 <!--Hacemos esto-->
-
-    <span>✅</span>
+    <a href="{% url 'completar' tarea.id %}">Marcar como completada</a>
+    
+    <span>❌</span>
 <!--Cerramos la condicional-->
     
     {% endif %}
